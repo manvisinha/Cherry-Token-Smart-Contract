@@ -5,7 +5,7 @@ Cherry Token(CH) is an ERC-20 token on the Ethereum blockchain that's not contro
 ## Features
 
 ### 1. Minting
-Cherry Token allows you to create more tokens, giving flexibility in controlling the total number of tokens available. Only the owner of the contract is allowed to do this, ensuring safe and effectively-managed process for issuing tokens.
+Cherry Token allows you to create more tokens, allowing you to easily control how many tokens there are. Only the owner of the contract is allowed to do this, ensuring safe and effectively-managed process for issuing tokens.
 
 ### 2. Burning
 People who own the tokens can delete some of them, which reduces the total number of tokens. This comes off as useful when we want to manage the number of tokens.
