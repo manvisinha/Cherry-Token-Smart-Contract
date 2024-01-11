@@ -1,20 +1,20 @@
 # Cherry Token Smart Contract
 
-Cherry Token(CH) is a decentralized ERC-20 token built on the Ethereum blockchain. It incorporates features such as burning, minting, and permit functionality, making it a versatile and secure token for various use cases. This smart contract is developed with transparency and community governance in mind.
+Cherry Token(CH) is an ERC-20 token on the Ethereum blockchain that's not controlled by any single entity. It has built-in features like burning (reducing the number of tokens), minting (creating new tokens), and permit functionality (allowing transactions without directly spending gas). 
 
 ## Features
 
 ### 1. Minting
-The Cherry Token allows for the minting of new tokens, providing flexibility for the token supply. Minting can only be performed by the owner of the contract, ensuring a controlled and secure token issuance process.
+Cherry Token allows you to create more tokens, giving flexibility in controlling the total number of tokens available. Only the owner of the contract is allowed to do this, ensuring safe and effectively-managed process for issuing tokens.
 
 ### 2. Burning
-Token holders have the ability to burn their Cherry Tokens, reducing the total supply. This feature can be useful for various scenarios, such as controlling inflation or implementing a deflationary mechanism.
+People who own the tokens can delete some of them, which reduces the total number of tokens. This comes off as useful when we want to manage the number of tokens.
 
 ### 3. Ownership
-The smart contract incorporates the Ownable pattern, allowing the owner to execute specific functions like minting and managing contract upgrades. This ensures a clear and manageable ownership structure.
+The majority control of this special contract is with the owner, like creating new tokens and working on the improvement of the contract. This helps in having a manageable ownership. 
 
 ### 4. Permit Functionality
-Cherry Token implements the ERC-20 Permit extension, enabling gasless transactions by allowing users to sign a permit for a specific amount, allowing others to execute transactions on their behalf. This enhances user experience and reduces transaction costs.
+Cherry Token smoothly adds a feature called ERC-20 Permit, making transactions possible without using gas. People can sign permissions for certain amounts, letting others make transactions for them. This not only makes it easier for users but also reduces transaction costs.
 
 ## Getting Started
 
