@@ -24,35 +24,59 @@ To deploy your own instance of the Cherry Token, follow these steps:
 2. Install the necessary dependencies using `npm install`.
 3. Deploy the smart contract on the Ethereum blockchain of your choice.
 
-## Usage
+## Functionality
+    // SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.20;
 
-### Minting Tokens
-To mint new Cherry Tokens, call the `mint` function, specifying the recipient's address and the desired amount of tokens.
+    import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+    import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+    import "@openzeppelin/contracts/access/Ownable.sol";
+    import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
-```solidity
-function mint(address to, uint256 amount) public onlyOwner {
-    _mint(to, amount); 
-}
-```
+    contract Cherry is ERC20, ERC20Burnable, Ownable, ERC20Permit {
+    constructor(address initialOwner)
+        ERC20("Cherry Token", "CH")
+        Ownable(initialOwner)
+        ERC20Permit("Cherry Token")
+    {
 
-### Burning Tokens
-Token holders can burn their Cherry Tokens by calling the `burn` function, specifying the amount of tokens to be burned.
+    /**
+     * @dev Mint new Cherry Tokens.
+     * @param to The recipient's address.
+     * @param amount The desired amount of tokens.
+     */
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
 
-```solidity
-function burn(uint256 burnamt) public virtual override {
-    _burn(msg.sender, burnamt);
-}
-```
+    /**
+     * @dev Burn Cherry Tokens.
+     * @param burnamt The amount of tokens to be burned.
+     */
+    function burn(uint256 burnamt) public virtual override {
+        _burn(msg.sender, burnamt);
+    }
 
-### Transferring Tokens
-Cherry Tokens can be transferred using the standard ERC-20 `transfer` function.
+    /**
+     * @dev Transfer Cherry Tokens.
+     * @param transfer_to The recipient's address.
+     * @param transfer_amount The amount of tokens to be transferred.
+     * @return A boolean indicating the success of the transfer.
+     */
+    function transfer(address transfer_to, uint256 transfer_amount) public virtual override returns(bool) {
+        _transfer(msg.sender, transfer_to, transfer_amount);
+        return true;
+    } 
+    }
+### - Minting Tokens
+To make new Cherry Tokens, just use the "mint" function. Tell the contract where to send the tokens (recipient's address) and how many you want to create (desired amount).
 
-```solidity
-function transfer(address transfer_to, uint256 transfer_amount) public virtual override returns(bool) {
-    _transfer(msg.sender, transfer_to, transfer_amount);
-    return true;
-}
-```
+### - Burning Tokens
+If you own some Cherry Tokens and want fewer of them around, you can use the "burn" function. Just call it and say how many tokens you want to get rid of (burnamt).
+
+### - Transferring Tokens
+To send Cherry Tokens to someone else, use the "transfer" function. Tell the contract where to send the tokens (recipient's address or "transfer_to") and how many you want to send (amount or "transfer_amount").
+
 
 # Author
 Manvi Sinha
